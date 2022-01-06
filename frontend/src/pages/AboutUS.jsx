@@ -59,7 +59,7 @@ const AboutUs=()=>{
                                 </div>
                                     <Card.Body className='m-5'>
                                         <Card.Text>
-                                            Hello My Name is Santo <br/>
+                                            Hello My Name is Santo asc <br/>
                                             <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque adipisci co.</span>
                                         </Card.Text>
                                     </Card.Body>

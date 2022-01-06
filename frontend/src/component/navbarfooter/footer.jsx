@@ -35,7 +35,7 @@ const Footer = () =>{
                         <div className="footertitle">
                             <h4>Navigation</h4>
                         </div>
-                         <Row>
+                        <Row>
                             <Col lg="12">
                                 <div className="Default">Soon</div> 
                             </Col>

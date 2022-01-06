@@ -14,11 +14,11 @@ const Index = () =>{
             <Menu/>
                 <h3>ini Adalah sebuah index</h3>
                 <h3>ini Adalah sebuah index</h3>
-                <h3>ini Adalah sebuah index</h3>
-                <h3>ini Adalah sebuah index</h3>
-                <h3>ini Adalah sebuah index</h3>
-                <h3>ini Adalah sebuah index</h3>
-                <h3>ini Adalah sebuah index</h3>
+                <h3>ini Adaladsadasdasad</h3>
+                <h3>ini Adalah sebuahasdasda ddsasddasindex</h3>
+                <h3>ini Adalah sASDASDASebuah index</h3>
+                <h3>ini Adalah dsaasdasdasdassebuah index</h3>
+                <h3>ini AdalsdadasdMAS RIDHOP TERSDEBEST POKOKNYAh sebuah index</h3>
             <Footer/>
         </div>
         </>

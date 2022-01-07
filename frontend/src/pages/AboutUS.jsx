@@ -12,25 +12,25 @@ const AboutUs=()=>{
     return(
         <>
             <Navigasi/>
+                    <Container>
                 <div>
                     <h1>Welcome To cemilanRiSan</h1>
                 </div>
-                    <Container>
                         <Row>
                             {/* Card 1 */}
-                            <Col lg='8 my-4'>
-                                <Card style={{width:'25rem',color:'black'}}>                                        
+                            <Col lg='12' className='d-flex justify-content-center'> 
+                                <Card style={{width:'23rem',color:'black',marginRight:'20px'}}>                                      
                                 <div className='footer_Card'>
-                                <Card.Header >
+                                <Card.Header>
                                     <h3>SANTO</h3>
                                 </Card.Header>
                                 </div>
-                                
-                                    
-                                    <Card.Body className='m-5'>
+                                    <Card.Body >
                                         <Card.Text>
+                                            <div className='textCard'>
                                             Hello My Name is Santo <br/>
-                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque adipisci co.</span>
+                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.</span>
+                                            </div>
                                         </Card.Text>
                                     </Card.Body>
                                     <div className='footer_Card'>
@@ -47,20 +47,19 @@ const AboutUs=()=>{
                                         </Card.Footer>
                                     </div>
                                 </Card>
-                            </Col>
                             {/* Card 2 */}
-                            <Col lg='4 my-4'>
-                            <Card style={{width:'25rem',color:'black',margin:'5'}}>                                        
-                                
-                            <div className='footer_Card'>
-                                <Card.Header >
+                                <Card style={{width:'23rem',color:'black',marginLeft:'20px'}}>                                        
+                                <div className='footer_Card'>
+                                <Card.Header>
                                     <h3>RIDHO</h3>
                                 </Card.Header>
                                 </div>
-                                    <Card.Body className='m-5'>
+                                    <Card.Body >
                                         <Card.Text>
-                                            Hello My Name is Santo asc <br/>
-                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque adipisci co.</span>
+                                            <div className='textCard'>
+                                            Hello My Name is Ridho<br/>
+                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.</span>
+                                            </div>
                                         </Card.Text>
                                     </Card.Body>
                                     <div className='footer_Card'>
@@ -77,12 +76,12 @@ const AboutUs=()=>{
                                         </Card.Footer>
                                     </div>
                                 </Card>
-                            </Col>
+                            </Col>  
+
+
                         </Row>
                     </Container>
-            <div className='my-4'>
                 <Footer/>
-            </div>
         </>
     )
 }

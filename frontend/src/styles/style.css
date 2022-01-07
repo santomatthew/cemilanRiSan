@@ -4,6 +4,10 @@
    margin-bottom: 10px;
 }
 
+.navbarfont{
+    font-family: 'Titillium Web', sans-serif;
+}
+
 .cemilanrisan{
     font-size: 30px;
     font-family: 'Nanum Pen Script', cursive;
@@ -34,6 +38,61 @@
     margin-bottom: 10px
 }
 
+.first{
+    transition: transform .2s;
+    border-radius: 50px;
+}
+
+.first:hover{
+    transform: scale(1.3);
+}
+
+.firstmodal{
+    margin-top:5px;
+    margin-bottom: 5px;
+    margin-left: 7px;
+    margin-right: 7px
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: black;
+    font-style: underline;
+  }
+  
+  .hover-underline-animation:after {
+    display: flex;
+    flex-wrap: nowrap;
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  .loginlink{
+    color: blue;
+    font-style: underline
+  }
+
+  .loginlink:hover{
+      color: black
+  }
+
 
 /* font cemilanrisan */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+/* navbar font */
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');

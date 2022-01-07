@@ -1,8 +1,9 @@
 import './App.css';
 import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom'
 
-import Index from '../src/pages/index';
+import Index from '../src/pages/Index';
 import AboutUs from './pages/AboutUS';
+// import Login from './pages/Login'
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             <Route exact path="/" element={<Index />}>
             </Route>
             <Route path ="/aboutUs" element={<AboutUs/>}/>
+            {/* <Route path ="/login" element={<Login/>}/> */}
           </Routes>
         </Router>
     </div>

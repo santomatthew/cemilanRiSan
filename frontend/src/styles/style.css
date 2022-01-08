@@ -91,6 +91,47 @@
       color: black
   }
 
+  .formpage{
+      text-align: left;
+      margin-top: 15px;
+      margin-bottom: 20px
+  }
+  
+  .formsetting{
+      padding: 20px;
+      border-radius: 15px;
+      border : 2px solid black;
+      box-shadow: 0px 0px 5px;
+      transition: transform .2s;
+  }
+
+  .formsetting:hover{
+    transform: scale(1.1);
+    background-color: #e9e7e7;  
+  }
+
+  .tombol{
+    background-color: #a9e74c;
+    color: black
+  }
+
+  .tombol:hover{
+    background-color: #89bb3e;
+  }
+
+  .formsettingregis{
+    padding: 20px;
+    /* margin-left:100px; */    
+      border-radius: 15px;
+      border : 2px solid black;
+      box-shadow: 0px 0px 5px;
+      transition: transform .2s;
+  }
+
+  .formsettingregis:hover{
+    transform: scale(1.1);
+    background-color: #e9e7e7;
+  }
 
 /* font cemilanrisan */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');

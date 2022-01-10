@@ -1,0 +1,72 @@
+{
+    "resep":[
+        {
+            "id":"1",
+            "gambar":"../component/img/makanan/bakso.jpg",
+            "title" : "Baso Kuah aci",
+            "bahan" : "Aci, tepung, bawang",
+            "tutorial" : "bakar,lalu goreng, sajikan"
+        },
+        {
+            "id":"2",
+            "gambar":"https://cdnt.orami.co.id/unsafe/cdn-cas.orami.co.id/parenting/images/resep-mie-goreng-jawa.width-800.jpegquality-80.jpg",
+            "title" : "mi goreng",
+            "bahan" : "mi, bumbu, bakso",
+            "tutorial" : "rebus lalu makan"
+        },
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        },
+        {
+            "id":"4",
+            "gambar":"https://akcdn.detik.net.id/api/wm/2020/03/20/48ffe775-d603-4b25-9440-270906e01b9e_169.jpeg",
+            "title" : "ikan goreng",
+            "bahan" : "jeruk nipis, sambel",
+            "tutorial" : "goreng dan makan juga"
+        },
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        }
+        ,
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        }
+        ,
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        }
+        ,
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        }
+        ,
+        {
+            "id":"3",
+            "gambar":"https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng-1200x720.jpg",
+            "title" : "ayam goreng",
+            "bahan" : "kuaci , garam, saos",
+            "tutorial" : "goreng dan makan lah"
+        }
+
+    ]
+}

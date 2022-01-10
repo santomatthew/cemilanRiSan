@@ -1,13 +1,10 @@
 import React from "react";
 
-import { useState } from "react";
 
 import "../../styles/style.css"
 
 import {Navbar,Nav} from "react-bootstrap"
 
-import Login from '../../pages/auth/Login'
-import Register from '../../pages/auth/Register'
 
 import logo from "../img/logo.png"
 
@@ -22,9 +19,9 @@ const Menu = ()=>{
                 <Navbar.Toggle aria-controls="navbarScroll" style={{marginRight:"8px"}}/>
                         <Navbar.Collapse className="justify-content-end">
                             <Nav style={{marginRight:'10px'}}>
-                                <Nav.Link className="navbarfont" href="/" className="hover-underline-animation">Home</Nav.Link>
-                                <Nav.Link className="navbarfont" href="/aboutus" className="hover-underline-animation">About Us</Nav.Link>
-                                <Nav.Link className="navbarfont" href="/login" className="hover-underline-animation">Login</Nav.Link>
+                                <Nav.Link className="navbarfont hover-underline-animation" href="/" >Home</Nav.Link>
+                                <Nav.Link className="navbarfont hover-underline-animation" href="/aboutus" >About Us</Nav.Link>
+                                <Nav.Link className="navbarfont hover-underline-animation" href="/login" >Login</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                 </Navbar>

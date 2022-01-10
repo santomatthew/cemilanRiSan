@@ -4,8 +4,8 @@ import { useState} from "react";
 
 import { Col, Row, Container} from "react-bootstrap"
 
-import Menu from '../../component/navbarfooter/navbar'
-import Footer from "../../component/navbarfooter/footer"
+import Menu from '../navbarfooter/navbar'
+import Footer from "../navbarfooter/footer"
 import Login from './Login'
 import Register from './Register'
 
@@ -17,7 +17,7 @@ const FormPage = () =>{
     const [showLogin,setShowLogin] = useState(false)
 
     return(
-        <>
+        <>  
         <Menu/>
         <Container>
             {

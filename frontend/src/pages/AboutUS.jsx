@@ -29,7 +29,7 @@ const AboutUs=()=>{
                                         <Card.Text>
                                             <div className='textCard'>
                                             Hello My Name is Santo <br/>
-                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.</span>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.
                                             </div>
                                         </Card.Text>
                                     </Card.Body>
@@ -58,7 +58,7 @@ const AboutUs=()=>{
                                         <Card.Text>
                                             <div className='textCard'>
                                             Hello My Name is Ridho<br/>
-                                            <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.</span>
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.
                                             </div>
                                         </Card.Text>
                                     </Card.Body>

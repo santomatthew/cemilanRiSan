@@ -89,7 +89,7 @@ const Index = () =>{
 
                 <Row style={{marginTop:'10px'}}>
                     {
-                        data.resep.map((row,index)=>(
+                        data.resep.map((row)=>(
                             <Col lg="3" className="d-flex justify-content-center listresep" >
                             <Card style={{ width: '18rem' }}>
                             <Card.Img variant="top" src={row.gambar} alt={row.title}/>

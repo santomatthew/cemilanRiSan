@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter , Route, Routes } from 'react-router-dom'
 
-import Index from '../src/pages/Index';
+import Index from '../src/pages/index';
 import AboutUs from './pages/AboutUS';
 import Login from './component/auth/FormPage'
 import CreateRecipe from './component/create/Create'

@@ -1,6 +1,6 @@
 .navbar{
    box-shadow: 0px 0px 5px;
-   background-color: white;
+   background-color: #DDDDDD;
    margin-bottom: 10px;
    border-bottom: 2 px solid black;
 }
@@ -22,22 +22,12 @@
 }
 
 .footerbg{
-    box-shadow: 0px -1px 3px;
+
     margin-top: 10px;
-    background-color: #a9e74c;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.logofooter{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid black;
-}
-
-.footertitle{
-    margin-top: 10px;
-    margin-bottom: 10px
-}
 
 .first{
     transition: transform .2s;
@@ -111,14 +101,6 @@
     background-color: #e9e7e7;  
   }
 
-  .tombol{
-    background-color: #a9e74c;
-    color: black
-  }
-
-  .tombol:hover{
-    background-color: #89bb3e;
-  }
 
   .formsettingregis{
     padding: 20px;

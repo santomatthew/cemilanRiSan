@@ -30,7 +30,7 @@ const Register = () =>{
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
             </Form.Group>
-            <Button className="tombol" variant="success" type="submit" style={{backgroundColor:'#a9e74c',color:'black'}}>
+            <Button variant="primary" type="submit">
                 Register
             </Button>
         </Form> 

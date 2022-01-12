@@ -32,7 +32,7 @@ const FormPage = () =>{
                       <div className="formpage d-flex justify-content-end">
                         Sudah punya akun?
                         <a href="#register"  onClick={() => setShowLogin(false)}>Login</a>
-                      </div>
+                      </div>  
                     </div>
                   </div>  
                 </Col>

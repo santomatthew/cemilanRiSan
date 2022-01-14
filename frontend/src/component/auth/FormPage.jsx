@@ -42,7 +42,7 @@ const FormPage = () =>{
                <Row>
                   <div className="d-flex justify-content-center">
                 <Col lg="5">
-                    <div className="formpage ">
+                    <div className="formpage">
                       
                       <div className="formsetting">
                       <h3 className="d-flex justify-content-center">Login</h3>

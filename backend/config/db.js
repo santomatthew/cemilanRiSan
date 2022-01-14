@@ -1,8 +1,10 @@
 import { Sequelize } from "sequelize";
 
-const DB = new Sequelize('recipesh','root','',{
-    host: 'localhost',
+
+const db = new Sequelize('posting','root','12345678',{
+    host : 'localhost',
     dialect : 'mysql'
 })
 
-export default DB;
+
+export default db;

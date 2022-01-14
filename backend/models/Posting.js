@@ -1,24 +1,29 @@
-import DB from '../config/db.js';
-import { Sequelize } from 'sequelize';
+import { Sequelize } from "sequelize";
+import db from "../config/db.js";
+
 
 const {DataTypes} = Sequelize;
 
-const Posting = DB.define('status',{
+const posting = db.define('captions',{
     title : {
-        type : DataTypes.STRING
-    },
-    img_url : {
-        type : DataTypes.STRING
+        type : DataTypes.STRING,
+        allowNull : false
     },
     bahan : {
-        type : DataTypes.TEXT
-    }
-    ,
+        type : DataTypes.TEXT,
+        allowNull : false
+    },
     caption : {
-        type : DataTypes.TEXT
+        type : DataTypes.TEXT,
+        allowNull : false
+    },
+    img_url :{
+        type : DataTypes.TEXT,
+        allowNull : false
     }
 },{
     freezeTableName : true
 })
 
-export default Posting;
+
+export default posting;

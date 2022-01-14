@@ -4,7 +4,8 @@ import { BrowserRouter , Route, Routes } from 'react-router-dom'
 import Index from '../src/pages/index';
 import AboutUs from './pages/AboutUS';
 import Login from './component/auth/FormPage'
-import CreateRecipe from './component/create/Create'
+import CreateRecipe from './component/crud/Create'
+import UpdateRecipe from './component/crud/Update'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
             </Route>
             <Route path ="/aboutUs" element={<AboutUs/>}/>
             <Route path ="/login" element={<Login/>}/>
-            <Route path ="/newrecipe" element={<CreateRecipe/>}/>
+            <Route path ="/addrecipe" element={<CreateRecipe/>}/>
+            <Route path ="/editrecipe" element={<UpdateRecipe/>}/>
           </Routes>
         </BrowserRouter>
     </div>

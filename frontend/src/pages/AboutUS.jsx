@@ -28,8 +28,8 @@ const AboutUs=()=>{
                                     <Card.Body >
                                         <Card.Text>
                                             <div className='textCard'>
-                                            Hello My Name is Santo <br/>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.
+                                            Halo nama saya Santo, <br/>
+                                            Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian front-end yang dimana dibagian untuk mendevelop tiap tampilan yang akan diterima oleh setiap user dan juga mendesign tiap tampilannya.
                                             </div>
                                         </Card.Text>
                                     </Card.Body>
@@ -57,8 +57,8 @@ const AboutUs=()=>{
                                     <Card.Body >
                                         <Card.Text>
                                             <div className='textCard'>
-                                            Hello My Name is Ridho<br/>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis, quo debitis iusto aliquid provident ea saepe temporibus deleniti quibusdam dolorem laborum similique minus incidunt. Suscipit facilis animi in adipisci enim.
+                                            Hello nama saya Ridho<br/>
+                                            Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian back-end yang dimana database dan API adalah menjadi teman saya untuk bekerja dan menyiapkan berbagai service yang akan di kirim ke front-end
                                             </div>
                                         </Card.Text>
                                     </Card.Body>

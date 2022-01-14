@@ -1,5 +1,5 @@
 import React from "react";
-
+import axios from "axios"
 import { useState,useEffect } from "react";
 
 import {Row,Col,Button,Modal, Container,Card} from "react-bootstrap"
@@ -11,7 +11,6 @@ import Footer from "../component/navbarfooter/footer"
 
 import {} from "react-bootstrap";
 
-import dbDummy from "../component/dbdummy/db.json"
 
 
 
@@ -23,15 +22,25 @@ const Index = () =>{
     const handleShow = () => setShowTutorial(true);
 
     //Data
-    const [data,setData] = useState({resep:[]})
-    // const handleDelete = (id) =>{
-    //     const updatedRows = data.resep.filter( v=> id !== v.id);
-    //     setData(prev=> ({...prev, rows: updatedRows}))
-    //   }
+   const [recipe,setRecipe]= useState([]);
 
-    useEffect(()=>{
-        setData(dbDummy)
-      }, [])
+   const GetAllRecipe = async()=>{
+       const response = await axios.get('http://localhost:6999/get')
+       setRecipe(response.data);
+   }
+
+   
+
+   const deletePost = async (id)=>{
+    await axios.delete(`http://localhost:6999/delete/${id}`);
+    GetAllRecipe();
+    }
+
+   useEffect(()=>{
+       GetAllRecipe();
+   },[])
+
+
 
 
     return (
@@ -55,7 +64,7 @@ const Index = () =>{
 
                     <path fillRule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"/>
                     </svg>
-                    <Button variant="outline-warning" onClick={handleShow}> 
+                    <Button variant="" className="btn btn-outline-secondary" onClick={handleShow}> 
                         !! Click Me !!
                     </Button>
 
@@ -88,24 +97,26 @@ const Index = () =>{
                 <Row style={{marginTop:'10px'}}>
                     <Col lg="12" style={{textAlign:'left'}}>
 
-                        <Button variant="outline-secondary" href="/newrecipe"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" className="mise-icon mise-icon-add-recipe"><path d="M14 3H9.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C3 6.04 3 7.16 3 9.4v5.2c0 2.24 0 3.36.436 4.216a4 4 0 0 0 1.748 1.748C6.04 21 7.16 21 9.4 21h5.2c2.24 0 3.36 0 4.216-.436a4 4 0 0 0 1.748-1.748C21 17.96 21 16.84 21 14.6V11M2 16h2M2 12h2M2 8h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M14.364 13.725 16 8v7h-.674a1 1 0 0 1-.962-1.275z" fill="currentColor"></path><path d="M16 20v-5m0 0V8l-1.636 5.725A1 1 0 0 0 15.326 15H16z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M8 8v2a2 2 0 0 0 2 2v0a2 2 0 0 0 2-2V8m-2 0v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"></path><path d="M20 2v6M17 5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg> Tulis Resep</Button>
+                        <Button variant="outline-secondary" href="/addrecipe"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" className="mise-icon mise-icon-add-recipe"><path d="M14 3H9.4c-2.24 0-3.36 0-4.216.436a4 4 0 0 0-1.748 1.748C3 6.04 3 7.16 3 9.4v5.2c0 2.24 0 3.36.436 4.216a4 4 0 0 0 1.748 1.748C6.04 21 7.16 21 9.4 21h5.2c2.24 0 3.36 0 4.216-.436a4 4 0 0 0 1.748-1.748C21 17.96 21 16.84 21 14.6V11M2 16h2M2 12h2M2 8h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M14.364 13.725 16 8v7h-.674a1 1 0 0 1-.962-1.275z" fill="currentColor"></path><path d="M16 20v-5m0 0V8l-1.636 5.725A1 1 0 0 0 15.326 15H16z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path><path d="M8 8v2a2 2 0 0 0 2 2v0a2 2 0 0 0 2-2V8m-2 0v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"></path><path d="M20 2v6M17 5h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg> Tulis Resep</Button>
 
                     </Col>
                 </Row>
 
                 <Row style={{marginTop:'10px'}}>
                     {
-                        data.resep.map((row,idx)=>(
+                        recipe.map((row,idx)=>(
+                            
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={row.gambar} alt={row.title}/>
+                            <Card.Img src={row.gambar} cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
                               <Card.Title>{row.title}</Card.Title>
                               <Card.Subtitle>{row.bahan}</Card.Subtitle>
                               <Card.Text>
                                 {row.tutorial}
                               </Card.Text>
-                              <Button variant="primary">Go somewhere</Button>
+                              <Button variant="primary">Selengkapnya</Button>
+                              <Button onClick={()=>deletePost(row.id)}> Delete</Button>
                             </Card.Body>
                           </Card>
                         </Col>

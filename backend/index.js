@@ -1,23 +1,27 @@
-import express from "express";
-import DB from "./config/db.js";
-import router from "./routers/index.js";
+import express from 'express';
+import db from './config/db.js';
+import posting from './models/posting.js';
+import router from './routers/router.js'
+import cors from 'cors'
+
 
 try {
-    await DB.authenticate();
-    console.log('Database Connected');
+    await db.authenticate()
+    await posting.sync()
+    
+    console.log('Database connected......')
 } catch (error) {
     
 }
 
 
+const app = express()
+const Port = 6999;
 
-const App = express();
-const PORT = 8007;
+app.use(express.json())
+app.use(cors({credentials:true, origin:'http://localhost:3000'}))
+app.use(router)
 
-
-App.use(router);
-App.use(express.json());
-
-App.listen(PORT,()=>{
-    console.log('CONNECTED....!!');
-});
+app.listen(Port,()=>{
+    console.log('connectedd....')
+})

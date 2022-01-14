@@ -1,5 +1,5 @@
 .navbar{
-   box-shadow: 0px 0px 5px;
+   box-shadow: 0px 2px 5px;
    background-color: #DDDDDD;
    margin-bottom: 10px;
    border-bottom: 2 px solid black;
@@ -22,8 +22,11 @@
 }
 
 .footerbg{
-
-    margin-top: 10px;
+    background-color: #DDDDDD;
+    box-shadow: 0px -1px 3px;
+    border-radius: 10px;
+    border-top: 1px solid black;
+    margin-top: 30px;
     margin-bottom: 10px;
     text-align: center;
 }
@@ -120,6 +123,11 @@
 
     margin-top: 10px;
     margin-bottom: 10px
+  }
+
+  .logoadd{
+    width: 100px;
+    height: 100px
   }
 
 /* font cemilanrisan */

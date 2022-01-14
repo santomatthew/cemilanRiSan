@@ -2,7 +2,7 @@ import React from "react";
 
 import {Container,Row,Col} from "react-bootstrap"
 
-import logo from "../img/logo.png"
+
 
 const Footer = () =>{
 
@@ -10,9 +10,9 @@ const Footer = () =>{
         <>
         <Container>
             <div className="footerbg">
-                <Row>
+                <Row className="d-flex justify-content-center">
                     <Col lg="3">
-                        Copyright © <span className="cemilanrisan" style={{fontSize:'20px'}}>'cemilanRiSan'</span>
+                        Copyright © 2021 <span className="cemilanrisan" style={{fontSize:'20px'}}>'cemilanRiSan'</span>
                     </Col>
                 </Row>
             </div>

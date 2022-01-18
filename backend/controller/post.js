@@ -42,3 +42,16 @@ export const deletePost= async (req,res)=>{
         })
     }
 }
+
+export const getdetailPost = async(req,res)=>{
+    try {
+        const getall = await posting.findAll({
+            where : {
+                id : req.params.id
+            }
+        })
+        res.status(200).json(getall)
+    } catch (error) {
+        res.status(404).json({msg : error})
+    }
+}

@@ -5,7 +5,6 @@ const router = express.Router()
 
 
 router.get('/get',getallPost)
-
 router.get('/get/:id',getdetailPost)
 router.post('/post',newPost)
 router.delete('/delete/:id', deletePost)

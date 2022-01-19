@@ -20,24 +20,23 @@ const Index = () =>{
     const handleClose = () => setShowTutorial(false);
     const handleShow = () => setShowTutorial(true);
 
-    const [showDetails, setShowDeatils] = useState(false);
-    const handleCloseDetails = () => setShowDeatils(false);
-    const handleShowDetails = () => setShowDeatils(true);
+    // const [showDetails, setShowDeatils] = useState(false);
+    // const handleCloseDetails = () => setShowDeatils(false);
+    // const handleShowDetails = () => setShowDeatils(true);
 
     //Data
    const [recipe,setRecipe]= useState([]);
-   const [details,setDetails]= useState([]);
+//    const [details,setDetails]= useState([]);
 
    const GetAllRecipe = async()=>{
        const response = await axios.get('http://localhost:6999/get')
        setRecipe(response.data);
    }
 
-   const ShowDetails = async(id)=>{
-       const response = await axios.get(`http://localhost:6999/get/${id}`)
-       setDetails(response.data);
-   }
-
+//    const ShowDetails = async(id)=>{
+//        const response2 = await axios.get(`http://localhost:6999/get/:${id}`)
+//        setDetails(response2.data);
+//    }
 
    const deletePost = async (id)=>{
     await axios.delete(`http://localhost:6999/delete/${id}`);
@@ -46,7 +45,6 @@ const Index = () =>{
 
    useEffect(()=>{
        GetAllRecipe();
-       ShowDetails();
    },[])
 
 
@@ -123,28 +121,7 @@ const Index = () =>{
                               <Card.Text>
                                 {row.caption}
                               </Card.Text>
-                              <Button variant="primary" onClick={()=>handleShowDetails(row.id)}>Selengkapnya</Button>
-                              <Modal
-                                        show={showDetails}
-                                        onHide={handleCloseDetails}
-                                        backdrop="static"
-                                        keyboard={false}>
-                                        
-                                        <Modal.Header closeButton>
-                                        </Modal.Header>
-                                        <Modal.Body>
-
-                                        {
-                                            recipe.id
-                                        }
-
-                                        </Modal.Body>
-                                        <Modal.Footer>
-                                        <Button variant="secondary" onClick={handleCloseDetails}>
-                                            Close
-                                        </Button>
-                                        </Modal.Footer>
-                                    </Modal>
+                              <Button variant="primary" href={`/details`} >Selengkapnya</Button>
                                 <Button onClick={()=>deletePost(row.id)}> Delete</Button>
                             </Card.Body>
                           </Card>

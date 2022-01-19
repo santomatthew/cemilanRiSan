@@ -50,7 +50,7 @@ export const getdetailPost = async(req,res)=>{
                 id : req.params.id
             }
         })
-        res.status(200).json(getall)
+        res.json(getall[0])
     } catch (error) {
         res.status(404).json({msg : error})
     }

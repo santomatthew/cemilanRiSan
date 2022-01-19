@@ -13,7 +13,7 @@ const Menu = ()=>{
 
     return(
         <>
-                <Navbar style={{backgroundColor:"#white"}}  expand="lg">
+                <Navbar expand="lg" style={{marginBottom:'30px'}}>
                         <Navbar.Brand href="/"><img src={logo} className="logosize" alt="cemilanrisan" style={{marginLeft:'5px'}}/></Navbar.Brand>
                         <span className="cemilanrisan">'Cemilan RiSan'</span>
                 <Navbar.Toggle aria-controls="navbarScroll" style={{marginRight:"8px"}}/>

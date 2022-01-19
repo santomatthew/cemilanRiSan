@@ -30,17 +30,17 @@ const Create = () =>{
            
             setValidated(true)
             e.preventDefault();
+
                 await axios.post('http://localhost:6999/post',{
                     title:title,
                     bahan:bahan,
                     caption:tutorial,
                     img_url:gambar
                 });
-                direct('/')
+                setTimeout(()=>{direct('/')},2000)
                 
     }
 
-    
     return(
         <>
         <Menu/>
@@ -62,7 +62,7 @@ const Create = () =>{
                             <Form.Label>Gambar</Form.Label>
                             <Form.Control required value={gambar}
                             onChange={(e)=>setGambar(e.target.value)}
-                             type="text" placeholder="Masukkan link gambar" />
+                             type="text"  placeholder="Masukkan link gambar" />
                              <Form.Control.Feedback type="invalid">
                             Masukkan gambar
                             </Form.Control.Feedback>

@@ -9,27 +9,35 @@ import logo from "../component/img/logo.png"
 import Menu from "../component/navbarfooter/navbar"
 import Footer from "../component/navbarfooter/footer"
 
-import {} from "react-bootstrap";
 
 
 
 
 const Index = () =>{
 
-    // Modal Tutorial
+    // Modals
     const [showTutorial, setShowTutorial] = useState(false);
     const handleClose = () => setShowTutorial(false);
     const handleShow = () => setShowTutorial(true);
 
+    const [showDetails, setShowDeatils] = useState(false);
+    const handleCloseDetails = () => setShowDeatils(false);
+    const handleShowDetails = () => setShowDeatils(true);
+
     //Data
    const [recipe,setRecipe]= useState([]);
+   const [details,setDetails]= useState([]);
 
    const GetAllRecipe = async()=>{
        const response = await axios.get('http://localhost:6999/get')
        setRecipe(response.data);
    }
 
-   
+   const ShowDetails = async(id)=>{
+       const response = await axios.get(`http://localhost:6999/get/${id}`)
+       setDetails(response.data);
+   }
+
 
    const deletePost = async (id)=>{
     await axios.delete(`http://localhost:6999/delete/${id}`);
@@ -38,6 +46,7 @@ const Index = () =>{
 
    useEffect(()=>{
        GetAllRecipe();
+       ShowDetails();
    },[])
 
 
@@ -105,23 +114,45 @@ const Index = () =>{
                 <Row style={{marginTop:'10px'}}>
                     {
                         recipe.map((row,idx)=>(
-                            
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card style={{ width: '18rem' }}>
-                            <Card.Img src={row.gambar} cross-origin="anonymous" alt={row.title}/>
+                            <Card.Img src={row.img_url} height={"175px"}  cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
-                              <Card.Title>{row.title}</Card.Title>
+                              <Card.Title >{row.title}</Card.Title>
                               <Card.Subtitle>{row.bahan}</Card.Subtitle>
                               <Card.Text>
-                                {row.tutorial}
+                                {row.caption}
                               </Card.Text>
-                              <Button variant="primary">Selengkapnya</Button>
-                              <Button onClick={()=>deletePost(row.id)}> Delete</Button>
+                              <Button variant="primary" onClick={()=>handleShowDetails(row.id)}>Selengkapnya</Button>
+                              <Modal
+                                        show={showDetails}
+                                        onHide={handleCloseDetails}
+                                        backdrop="static"
+                                        keyboard={false}>
+                                        
+                                        <Modal.Header closeButton>
+                                        </Modal.Header>
+                                        <Modal.Body>
+
+                                        {
+                                            recipe.id
+                                        }
+
+                                        </Modal.Body>
+                                        <Modal.Footer>
+                                        <Button variant="secondary" onClick={handleCloseDetails}>
+                                            Close
+                                        </Button>
+                                        </Modal.Footer>
+                                    </Modal>
+                                <Button onClick={()=>deletePost(row.id)}> Delete</Button>
                             </Card.Body>
                           </Card>
                         </Col>
                         ))
                      }
+                     
+                                        
                 </Row>
             </Container>
         <Footer/>

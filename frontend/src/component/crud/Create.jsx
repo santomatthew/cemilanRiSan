@@ -14,7 +14,7 @@ const Create = () =>{
 
     const [validated, setValidated] = useState(false);
 
-    const [gambar,setGambar] = useState('');
+    const [gambar,setGambar] = useState([]);
     const [title,setTitle] = useState('');
     const [bahan,setBahan] = useState('');
     const [tutorial,setTutorial] = useState('');
@@ -61,8 +61,8 @@ const Create = () =>{
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Gambar</Form.Label>
                             <Form.Control required value={gambar}
-                            onChange={(e)=>setGambar(e.target.value)}
-                             type="text"  placeholder="Masukkan link gambar" />
+                            onChange={(e)=>setGambar(e.target.file )}
+                             type="file" accept=".webp" placeholder="Masukkan link gambar" />
                              <Form.Control.Feedback type="invalid">
                             Masukkan gambar
                             </Form.Control.Feedback>

@@ -1,9 +1,10 @@
 import React from "react";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import {  useParams } from "react-router-dom";
 
 import axios from "axios";
 
-import {Row,Col,Button,Modal, Container,Card} from "react-bootstrap"
+import {Row,Col,Card} from "react-bootstrap"
 
 
 import Menu from "../component/navbarfooter/navbar"
@@ -12,20 +13,26 @@ import Footer from "../component/navbarfooter/footer"
 
 const Details = () =>{
 
+    const { id } = useParams()
 
 //Data
-const [recipe,setRecipe]= useState([]);
+// const [recipe,setRecipe]= useState([]);
+    const [gambar,setGambar] = useState('');
+    const [title,setTitle] = useState('');
+    const [bahan,setBahan] = useState('');
+    const [tutorial,setTutorial] = useState('');
 
-
-        const ShowDetails = async(id)=>{
-            const response2 = await axios.get(`http://localhost:6999/get/${id}`)
-            setRecipe(response2.data);
+        const ShowDetails = async ()=>{
+            const res = await axios.get(`http://localhost:6999/get/${id}`);
+            setTitle(res.data.title);
+            setGambar(res.data.img_url);
+            setBahan(res.data.bahan);
+            setTutorial(res.data.caption);
         }
 
-
-        useEffect(()=>{
-            ShowDetails()
-        },[])
+            useEffect(()=>{
+                ShowDetails()
+            });
 
     return(
         <>
@@ -34,23 +41,18 @@ const [recipe,setRecipe]= useState([]);
 
             <Row>
                 <Col>
-
-                    {
-                        recipe.map((row)=>(
-                            <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
+                <Col key={id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card style={{ width: '18rem' }}>
-                            <Card.Img src={row.img_url} height={"175px"}  cross-origin="anonymous" alt={row.title}/>
+                            <Card.Img src={gambar} height={"175px"}  cross-origin="anonymous" alt={title}/>
                             <Card.Body>
-                              <Card.Title >{row.title}</Card.Title>
-                              <Card.Subtitle>{row.bahan}</Card.Subtitle>
+                              <Card.Title >{title}</Card.Title>
+                              <Card.Subtitle>{bahan}</Card.Subtitle>
                               <Card.Text>
-                                {row.caption}
+                                {tutorial}
                               </Card.Text>
                             </Card.Body>
                           </Card>
                         </Col>
-                        ))
-                    }
                 </Col>
             </Row>
 
@@ -59,5 +61,6 @@ const [recipe,setRecipe]= useState([]);
         </>
     )
 }
+
 
 export default Details

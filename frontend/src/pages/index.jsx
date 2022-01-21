@@ -106,14 +106,10 @@ const Index = () =>{
                     {
                         recipe.map((row,idx)=>(
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
-                            <Card style={{ width: '18rem' }}>
+                            <Card className="card" style={{ width: '18rem' }}>
                             <Card.Img src={row.img_url} height={"175px"}  cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
-                              <Card.Title >{row.title}</Card.Title>
-                              <Card.Subtitle>{row.bahan}</Card.Subtitle>
-                              <Card.Text>
-                                {row.caption}
-                              </Card.Text>
+                              <Card.Title >Resep {row.title}</Card.Title>
                               <Button variant="primary" href={`details/${row.id}`}>Details</Button>
                                 {/* <Button onClick={()=>deletePost(row.id)}> Delete</Button> */}
                             </Card.Body>

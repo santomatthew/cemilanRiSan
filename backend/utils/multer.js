@@ -5,7 +5,7 @@ const upload = multer({
     storage : multer.diskStorage({}),
     fileFilter : (req,file,cb)=>{
         const ext = path.extname(file.originalname);
-        if(ext != '.jpeg' && ext != '.jpg'&& ext != '.JPG'&& ext != '.JPEG' ){
+        if(ext !== '.jpg' && ext !== '.jpeg' && ext !== '.png'){
             return;
         }
         cb(null,true)

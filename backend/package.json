@@ -11,15 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cloudinary": "^1.28.1",
+    "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
-    "dotenv": "^14.2.0",
+    "dotenv": "^11.0.0",
     "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.4",
-    "multiplier": "^0.1.0",
     "mysql2": "^2.3.3",
-    "nodemon": "^2.0.15",
-    "path": "^0.12.7",
     "sequelize": "^6.13.0"
   }
 }

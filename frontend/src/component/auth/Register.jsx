@@ -1,10 +1,28 @@
 import React from "react";
-
+import axios from "axios";
 import {Form, Button } from "react-bootstrap";
-
-
+import {useNavigate} from "react-router-dom"
+import { useState } from "react";
 const Register = () =>{
-
+    const [name,setName] = useState('');
+    const [username,setUsername] = useState('');
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('')
+    const navigate = useNavigate()
+    const API = `http://localhost:5000/api/signup`
+    const register =async(e)=>{
+        try {
+            await axios.post(API,{
+                name: name,
+                username : username,
+                email:email,
+                password: password
+            })
+            navigate('/login')
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return(
         <>
         <div className="d-flex justify-content-center">

@@ -40,14 +40,10 @@ const Create = () =>{
             formData.append('bahan',bahan)
             formData.append('caption',tutorial)
 
-
-
-                await axios.post('http://localhost:6999/post',formData);
-                setTimeout(()=>{direct('/')},500)
+            await axios.post('http://localhost:6999/post',formData);
+             setTimeout(()=>{direct('/')},500)
                 
     }
-
-    const[clicked,setClicked]=useState(false)
 
     return(
         <>
@@ -65,7 +61,7 @@ const Create = () =>{
             <div className="d-flex justify-content-center">
                 <Col lg="10">
                     <div className="formpage">
-                    <Form validated={validated} onSubmit={()=>AddRecipe && setClicked(true) }>
+                    <Form validated={validated} onSubmit={AddRecipe}>
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Gambar</Form.Label>
                             <Form.Control required
@@ -100,7 +96,7 @@ const Create = () =>{
                             </Form.Control.Feedback>
                         </Form.Group>
                         
-                        <Button variant="primary" disabled={clicked} type="submit">
+                        <Button variant="primary" type="submit">
                             Submit
                         </Button>
 

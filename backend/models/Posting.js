@@ -18,7 +18,7 @@ const posting = db.define('captions',{
         allowNull : false
     },
     img_url :{
-        type : DataTypes.TEXT,
+        type : DataTypes.STRING,
         allowNull : false
     }
 },{

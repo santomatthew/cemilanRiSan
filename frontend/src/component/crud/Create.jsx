@@ -11,17 +11,20 @@ import { Container,Col, Row, Form,Button} from "react-bootstrap";
 import logo from "../img/cooking.png"
 
 const Create = () =>{
+    
 
     const [validated, setValidated] = useState(false);
 
-    const [gambar,setGambar] = useState([]);
+    const [gambar,setGambar] = useState('');
     const [title,setTitle] = useState('');
     const [bahan,setBahan] = useState('');
     const [tutorial,setTutorial] = useState('');
 
     const direct = useNavigate()
 
+    
     const AddRecipe = async(e)=>{
+
         const form = e.currentTarget;
             if (form.checkValidity() === false) {
                 e.preventDefault();
@@ -31,15 +34,20 @@ const Create = () =>{
             setValidated(true)
             e.preventDefault();
 
-                await axios.post('http://localhost:6999/post',{
-                    title:title,
-                    bahan:bahan,
-                    caption:tutorial,
-                    img_url:gambar
-                });
-                setTimeout(()=>{direct('/')},2000)
+            const formData = new FormData()
+            formData.append('img_url',gambar)
+            formData.append('title',title)
+            formData.append('bahan',bahan)
+            formData.append('caption',tutorial)
+
+
+
+                await axios.post('http://localhost:6999/post',formData);
+                setTimeout(()=>{direct('/')},500)
                 
     }
+
+    const[clicked,setClicked]=useState(false)
 
     return(
         <>
@@ -57,12 +65,12 @@ const Create = () =>{
             <div className="d-flex justify-content-center">
                 <Col lg="10">
                     <div className="formpage">
-                    <Form validated={validated} onSubmit={AddRecipe}>
+                    <Form validated={validated} onSubmit={()=>AddRecipe && setClicked(true) }>
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Gambar</Form.Label>
-                            <Form.Control required value={gambar}
-                            onChange={(e)=>setGambar(e.target.file )}
-                             type="file" accept=".webp" placeholder="Masukkan link gambar" />
+                            <Form.Control required
+                            onChange={(e)=>setGambar(e.target.files[0])}
+                             type="file" placeholder="Masukkan link gambar" />
                              <Form.Control.Feedback type="invalid">
                             Masukkan gambar
                             </Form.Control.Feedback>
@@ -92,9 +100,10 @@ const Create = () =>{
                             </Form.Control.Feedback>
                         </Form.Group>
                         
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" disabled={clicked} type="submit">
                             Submit
                         </Button>
+
                     </Form> 
                     </div>
                 </Col>

@@ -114,8 +114,8 @@ const Index = () =>{
                               <Card.Text>
                                 {row.caption}
                               </Card.Text>
-                              <Button variant="primary" href={`details/${row.id}`} >Selengkapnya</Button>
-                                <Button onClick={()=>deletePost(row.id)}> Delete</Button>
+                              <Button variant="primary" href={`details/${row.id}`}>Details</Button>
+                                {/* <Button onClick={()=>deletePost(row.id)}> Delete</Button> */}
                             </Card.Body>
                           </Card>
                         </Col>

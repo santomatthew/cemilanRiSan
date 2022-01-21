@@ -1,29 +1,29 @@
-import React from "react";
+// import React from "react";
 
-import axios from "axios"
+// import axios from "axios"
 
-import { useState} from "react"
-import { useNavigate } from "react-router-dom";
+// import { useState} from "react"
+// import { useNavigate } from "react-router-dom";
 
-import Menu from "../navbarfooter/navbar"
-import Footer from "../navbarfooter/footer"
+// import Menu from "../navbarfooter/navbar"
+// import Footer from "../navbarfooter/footer"
 
-import { Col, Row, Form,Button} from "react-bootstrap";
+// import { Col, Row, Form,Button} from "react-bootstrap";
 
 
-const Update = () =>{
+// const Update = () =>{
     
-    return(
-        <>
-        <Menu/>
-            <Row>
-                <Col>
+//     return(
+//         <>
+//         <Menu/>
+//             <Row>
+//                 <Col>
                 
-                </Col>
-            </Row>
-        <Footer/>
-        </>
-    )
-}
+//                 </Col>
+//             </Row>
+//         <Footer/>
+//         </>
+//     )
+// }
 
-export default Update
+// export default Update

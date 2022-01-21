@@ -4,7 +4,7 @@ import {  useParams } from "react-router-dom";
 
 import axios from "axios";
 
-import {Row,Col,Card} from "react-bootstrap"
+import {Row,Col,Container} from "react-bootstrap"
 
 
 import Menu from "../component/navbarfooter/navbar"
@@ -39,22 +39,35 @@ const Details = () =>{
 
         <Menu/>
 
-            <Row>
-                <Col>
-                <Col key={id} lg="3" className="d-flex justify-content-center listresep" >
-                            <Card style={{ width: '18rem' }}>
-                            <Card.Img src={gambar} height={"175px"}  cross-origin="anonymous" alt={title}/>
-                            <Card.Body>
-                              <Card.Title >{title}</Card.Title>
-                              <Card.Subtitle>{bahan}</Card.Subtitle>
-                              <Card.Text>
-                                {tutorial}
-                              </Card.Text>
-                            </Card.Body>
-                          </Card>
+        <div style={{backgroundColor:""}}>
+            <Container>
+                <div key={id} style={{backgroundColor:'#FFF8F3'}}>
+                    <Row>
+                        <Col lg="12">
+                        <h1>{title}</h1>
                         </Col>
-                </Col>
-            </Row>
+                    </Row>
+                    <Row>
+                        <Col lg="12">
+                            <img src={gambar} alt={title} style={{maxWidth:'100%',maxHeight:'100%'}}/>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col lg="12">
+                        <h3>Bahan-bahan :</h3>
+                            {bahan}                
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col lg="12">
+                        <h3>Tutorial :</h3>
+                            {tutorial}                
+                        </Col>
+                    </Row>
+
+                </div>
+            </Container>
+        </div>
 
         <Footer/>
 

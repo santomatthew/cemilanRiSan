@@ -1,4 +1,5 @@
-GET http://localhost:6999/get
+
+GET http://localhost:5000/get
 Content-Type: application/json
 
 ###
@@ -10,4 +11,24 @@ Content-Type: application/json
     "bahan" : "bakso,garem,saos,sambel",
     "caption" : "masak,goreng,telen",
     "img_url" : "https://akcdn.detik.net.id/api/wm/2020/03/20/48ffe775-d603-4b25-9440-270906e01b9e_169.jpeg"
+}
+###
+POST http://localhost:5000/api/signup
+Content-Type: application/json
+
+{
+    "name" : "ohyea",
+    "username" : "handi",
+    "email" : "nini@gmail.com",
+    "password" : "anjay"
+}
+
+###
+
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{   
+    "password": "anjay",
+    "email": "nini@gmail.com"
 }

@@ -1,5 +1,8 @@
 import React from "react";
 
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic"
+import { CKEditor } from "@ckeditor/ckeditor5-react"
+
 import axios from "axios"
 import { useState} from "react"
 import { useNavigate } from "react-router-dom";
@@ -83,9 +86,11 @@ const Create = () =>{
                             <Form.Label>Bahan</Form.Label>
                             <Form.Control required as="textarea" value={bahan}
                             onChange={(e)=>setBahan(e.target.value)}type="text" placeholder="Bahan bahan" />
-                            <Form.Control.Feedback type="invalid">
-                            Masukkan bahan-bahan
-                            </Form.Control.Feedback>
+                        {/* <CKEditor
+                        editor={ClassicEditor}  
+                        data={bahan}
+                        onChange={(e,editor)=>setBahan(e.editor.getData())} 
+                        /> */}
                         </Form.Group>
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Tutorial</Form.Label>

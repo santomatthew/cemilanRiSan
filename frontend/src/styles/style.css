@@ -130,6 +130,21 @@
     height: 100px
   }
 
+  .card{
+    margin-top: 20px;
+  }
+  
+  .card:hover{
+    transform: translateY(-15px);
+    transition: transform .75s;
+    background-color: #C9CCD5;
+    border: 1px solid black;
+  }
+
+  .detailpict{
+    border: 2px solid black
+  }
+
 /* font cemilanrisan */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 /* navbar font */

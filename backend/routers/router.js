@@ -1,7 +1,7 @@
 import express from "express";
 import upload from '../utils/multer.js';
 import { getallPost, newPost, deletePost, getdetailPost } from "../controller/post.js";
-import { Login, Regiser } from "../controller/user.js";
+import { Login, Register } from "../controller/user.js";
 import verifitoken from "../middleware/verifytoken.js"
 
 const router = express.Router()
@@ -14,6 +14,6 @@ router.delete('/delete/:id', deletePost)
 
 
 // routers For Users;
-router.post('/api/signup',Regiser)
+router.post('/api/signup',Register)
 router.post('/api/login',Login)
 export default router;

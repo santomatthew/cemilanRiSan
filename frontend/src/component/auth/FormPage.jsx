@@ -48,7 +48,7 @@ const FormPage = () =>{
                       <h3 className="d-flex justify-content-center">Login</h3>
                         <Login />
                         <div className="formpage d-flex justify-content-end">
-                          Belum punya akun? 
+                          Belum punya akun?      
                           <a href="#register"  onClick={() => setShowLogin(true)}>Sign Up</a>
                         </div>
                       </div>

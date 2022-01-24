@@ -1,9 +1,33 @@
-import React from "react";
-
+import React, { useState } from "react";
+import axios from 'axios';
 import {Form, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom"
 
 const Login = () =>{
-
+    // Login
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('');
+    const [Msg,setMsg] = useState('');
+    const direct = useNavigate()
+    const [validate,setValidate] = useState(false); 
+    const LoginAccount = async(e)=>{
+        const form = e.currentTarget;
+        if(form.checkValidity()===false){
+            e.preventDefault();
+        }
+        try {
+            setValidate(true)
+            await axios.post('http://localhost:6999/api/login',{
+                email : email,
+                password : password
+            });
+            alert('Wellcome')
+            setTimeout(()=>{direct('/')},500)
+        } catch (error) {
+            if(error.response)
+            setMsg(error.response.data)
+        }
+    }
     return(
         <>
         <div className="d-flex justify-content-center">
@@ -12,10 +36,14 @@ const Login = () =>{
         <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
         </div>
-        <Form>
+        <Form validated={validate} onSubmit={LoginAccount}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control required 
+                value={email}
+                onChange={(e)=>setEmail(e.target.value)}
+                type="email" 
+                placeholder="Enter email"/>
                 <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
                 </Form.Text>
@@ -23,7 +51,11 @@ const Login = () =>{
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control require
+                value={password}
+                onChange={(e)=>setPassword(e.target.value)}
+                type="password" 
+                placeholder="Password" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
             </Form.Group>

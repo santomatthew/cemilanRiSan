@@ -3,9 +3,9 @@ import axios from "axios"
 import { useState,useEffect } from "react";
 
 import {Row,Col,Button,Modal, Container,Card} from "react-bootstrap"
-
+import { useNavigate } from "react-router-dom";
 import logo from "../component/img/logo.png"
-
+import jwt_decode from "jwt-decode";
 import Menu from "../component/navbarfooter/navbar"
 import Footer from "../component/navbarfooter/footer"
 
@@ -14,31 +14,66 @@ import Footer from "../component/navbarfooter/footer"
 
 
 const Index = () =>{
+    const [name, setName] = useState('');
+    const [token, setToken] = useState('');
+    const [expire, setExpire] = useState('');
+    const [users, setUsers] = useState([]);
+    const direct = useNavigate()
 
+    useEffect(()=>{
+        GetAllRecipe();
+        RefreshToken()
+    },[])
+    // refreshToken//
+    const RefreshToken = async()=>{
+        try {
+            const response = await axios.get('http://localhost/api/token');
+            setToken(response.data.accsesstoken);
+            const decoded = jwt_decode(response.data.accsesstoken);
+            setName(decoded.name);
+            setExpire(decoded.exp)
+        } catch (error) {
+            if(error.response){
+                direct('/');
+            }
+        }
+    }
+    const axiosJWT = axios.create()
+    axiosJWT.interceptors.request.use(async(config)=>{
+        const currentDate= new Date();
+        if(expire * 1000 < currentDate.getTime()){
+            const response = await axios.get('http://localhost/api/token');
+            config.headers.Authorization = `Bearer ${response.data.accsesstoken}`;
+            setToken(response.data.accsesstoken);
+            const decoded = jwt_decode(response.data.accsesstoken);
+            setName(decoded.name);
+            setExpire(decoded.exp);
+        }
+        return config;
+    },(error)=>{
+        return Promise.reject(error);
+    })
     // Modals
     const [showTutorial, setShowTutorial] = useState(false);
     const handleClose = () => setShowTutorial(false);
     const handleShow = () => setShowTutorial(true);
-
- 
-
     //Data
-   const [recipe,setRecipe]= useState([]);
-
-   const GetAllRecipe = async()=>{
-       const response = await axios.get('http://localhost:6999/get')
-       setRecipe(response.data);
-   }
-
-
-   const deletePost = async (id)=>{
-    await axios.delete(`http://localhost:6999/delete/${id}`);
-    GetAllRecipe();
+    const [recipe,setRecipe]= useState([]);
+    const GetAllRecipe = async()=>{
+        const response = await axios.get('http://localhost:6999/get',{
+            headers : {
+                Authorization: `Bearer ${token}`
+            }
+        })
+        setRecipe(response.data);
     }
 
-   useEffect(()=>{
-       GetAllRecipe();
-   },[])
+
+//    const deletePost = async (id)=>{
+//     await axios.delete(`http://localhost:6999/delete/${id}`);
+//     GetAllRecipe();
+//     }
+
 
 
 

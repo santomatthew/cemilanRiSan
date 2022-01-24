@@ -8,21 +8,26 @@ const Register = () =>{
     const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
-    const navigate = useNavigate()
-    const API = `http://localhost:5000/api/signup`
-    const register =async(e)=>{
-        try {
-            await axios.post(API,{
+    const [validated, setValidated] = useState(false);
+    const registerAccount =async(e)=>{
+        const form = e.currentTarget;
+            if (form.checkValidity() === false) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            setValidated(true)
+            e.preventDefault();
+            await axios.post(`http://localhost:6999/api/signup`,{
                 name: name,
                 username : username,
                 email:email,
                 password: password
             })
-            navigate('/login')
-        } catch (error) {
-            console.log(error)
-        }
+            alert('Akun berhasil di daftarkan')
+            setTimeout(()=>window.location.reload(),500)
     }
+        
     return(
         <>
         <div className="d-flex justify-content-center">
@@ -31,27 +36,36 @@ const Register = () =>{
         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
         </svg>
         </div>
-           <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-            </Form.Group>
+                    <Form validated={validated} onSubmit={registerAccount}>
 
-            <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
-                <Form.Control type="username" placeholder="Enter username" />
-            </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control required size="lg" value={name}
+                                onChange={(e)=>setName(e.target.value)} type="text" placeholder="Enter Name" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control required size="lg" value={email}
+                                onChange={(e)=>setEmail(e.target.value)} type="email" placeholder="Enter email" />
+                </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            </Form.Group>
-            <Button variant="primary" type="submit">
-                Register
-            </Button>
-        </Form> 
+                <Form.Group className="mb-3" controlId="formBasicUsername">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control required size="lg" value={username}
+                                onChange={(e)=>setUsername(e.target.value)} type="text" placeholder="Enter username" />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control required size="lg" value={password}
+                                onChange={(e)=>setPassword(e.target.value)} type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Register
+                </Button>
+                </Form>
         </>
     )
 }

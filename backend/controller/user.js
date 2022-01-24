@@ -1,11 +1,20 @@
 import User from "../models/usermodel.js";
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken'
+import posting from "../models/posting.js";
+import Relation from "../models/index.js";
 
-
+try {
+    Relation;
+    console.log("Relation Mode On");
+} catch (error) {
+    console.log(error);
+}
 export const Regiser = async (req,res)=>{
     const { name,username,email,password } = req.body;
+    
     const salt = await bcrypt.genSalt();
+
     const hashPassword = await bcrypt.hash(password,salt);
     try {
         await User.create({
@@ -44,17 +53,29 @@ export const Login = async (req,res)=>{
                 id : userid 
             }
         })
-        res.cookie('refreshtoken',refresh_token,{
+        res.cookie('refreshtoken ',refresh_token,{
             httpOnly : true,
             maxAge : 24 * 60 * 60 * 1000
         });
-        res.json({
-            id : userid,
-            username : username,
-            email : email,
-            accesstoken
-        })
+        res.json({accesstoken})
+        console.log(req.headers['cookie'])
     } catch (error) {
         console.log(error);
     }
 }
+
+
+// export const GetProfile = async (req,res)=>{
+//     try {
+//         const Cookie = req.headers['cookie'];
+//         const user = await User.findOne({
+//             where : {
+//                 id : 1
+//             },attributes:["id","username"],
+//             include:posting
+//         });
+//         res.json(user)
+//     } catch (error) {
+//         console.log(error)
+//     }
+// }

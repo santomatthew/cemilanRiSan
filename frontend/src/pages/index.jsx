@@ -10,9 +10,6 @@ import Menu from "../component/navbarfooter/navbar"
 import Footer from "../component/navbarfooter/footer"
 
 
-
-
-
 const Index = () =>{
     const [name, setName] = useState('');
     const [token, setToken] = useState('');
@@ -57,6 +54,7 @@ const Index = () =>{
     const [showTutorial, setShowTutorial] = useState(false);
     const handleClose = () => setShowTutorial(false);
     const handleShow = () => setShowTutorial(true);
+
     //Data
     const [recipe,setRecipe]= useState([]);
     const GetAllRecipe = async()=>{
@@ -142,7 +140,7 @@ const Index = () =>{
                         recipe.map((row,idx)=>(
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card className="card" style={{ width: '18rem' }}>
-                            <Card.Img src={row.img_url} height={"175px"}  cross-origin="anonymous" alt={row.title}/>
+                            <Card.Img src={row.img_url}  height={"175px"}  cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
                               <Card.Title >Resep {row.title}</Card.Title>
                               <Button variant="primary" href={`details/${row.id}`}>Details</Button>

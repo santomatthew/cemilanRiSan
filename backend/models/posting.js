@@ -10,7 +10,7 @@ const posting = db.define('captions',{
         allowNull : false
     },
     bahan : {
-        type : DataTypes.TEXT,
+        type : DataTypes.STRING,
         allowNull : false
     },
     caption : {

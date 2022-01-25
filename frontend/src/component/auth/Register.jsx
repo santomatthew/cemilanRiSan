@@ -1,15 +1,22 @@
 import React from "react";
 import axios from "axios";
 import {Form, Button } from "react-bootstrap";
-import {useNavigate} from "react-router-dom"
 import { useState } from "react";
+
+
+
 const Register = () =>{
-    const [name,setName] = useState('');
+
+    // Form Validasi untuk tiap field yang kosong
+    const [validated, setValidated] = useState(false);
+    // Data
+    const [name,setName] = useState('')
     const [username,setUsername] = useState('');
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
     const [validated, setValidated] = useState(false);
     const registerAccount =async(e)=>{
+
         const form = e.currentTarget;
             if (form.checkValidity() === false) {
                 e.preventDefault();
@@ -26,8 +33,10 @@ const Register = () =>{
             })
             alert('Akun berhasil di daftarkan')
             setTimeout(()=>window.location.reload(),500)
+
     }
         
+
     return(
         <>
         <div className="d-flex justify-content-center">
@@ -36,6 +45,7 @@ const Register = () =>{
         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
         </svg>
         </div>
+
                     <Form validated={validated} onSubmit={registerAccount}>
 
                 <Form.Group className="mb-3" controlId="formBasicName">
@@ -66,6 +76,7 @@ const Register = () =>{
                     Register
                 </Button>
                 </Form>
+
         </>
     )
 }

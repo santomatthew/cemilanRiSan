@@ -49,7 +49,7 @@ const Details = () =>{
                     </Row>
                     <Row>
                         <Col lg="12">
-                            <img src={gambar} alt={title} style={{maxWidth:'100%',maxHeight:'100%'}}/>
+                            <img src={gambar} className="detailpict" alt={title} width={'800px'} style={{maxWidth:'100%',maxHeight:'100%'}}/>
                         </Col>
                     </Row>
                     <Row>

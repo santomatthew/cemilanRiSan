@@ -1,4 +1,5 @@
 import posting from "../models/posting.js";
+import User from "../models/usermodel.js";
 import cloudinary from "../utils/cloudinary.js";
 
 export const getallPost = async(req,res)=>{
@@ -7,10 +8,17 @@ export const getallPost = async(req,res)=>{
         res.status(200).json(getall)
     } catch (error) {
         res.status(404).json({msg : error})
+        console.log(error);
     }
 }
 
 export const newPost = async(req,res)=>{
+    const cookies = req.headers['cookie']
+    const user = await User.findOne({
+        where : {
+            refreshtoken : cookies
+        }
+    })
     const {title,bahan,caption}= req.body
     try {
         const urlPhoto = await cloudinary.v2.uploader.upload(req.file.path)
@@ -18,7 +26,8 @@ export const newPost = async(req,res)=>{
             title : title,
             bahan : bahan,
             caption : caption,
-            img_url : urlPhoto.secure_url
+            img_url : urlPhoto.secure_url,
+            user_id : user.id
         });
         res.status(200).json({msg : 'berhasil post'})
 

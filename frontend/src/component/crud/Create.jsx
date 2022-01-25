@@ -33,16 +33,13 @@ const Create = () =>{
                 e.preventDefault();
                 e.stopPropagation();
             }
-           
             setValidated(true)
             e.preventDefault();
-
             const formData = new FormData()
             formData.append('img_url',gambar)
             formData.append('title',title)
             formData.append('bahan',bahan)
             formData.append('caption',tutorial)
-
             await axios.post('http://localhost:6999/post',formData);
              setTimeout(()=>{direct('/')},500)
                 

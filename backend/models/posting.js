@@ -20,6 +20,10 @@ const posting = db.define('captions',{
     img_url :{
         type : DataTypes.STRING,
         allowNull : false
+    },
+    user_id : {
+        type : DataTypes.INTEGER,
+        allowNull : false
     }
 },{
     freezeTableName : true

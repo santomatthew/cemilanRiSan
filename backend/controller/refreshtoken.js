@@ -1,4 +1,4 @@
-import User from "../models/UserModel.js";
+import User from "../models/usermodel.js";
 import jwt from "jsonwebtoken"
 
 const refreshtToken= async (req,res)=>{
@@ -28,3 +28,4 @@ const refreshtToken= async (req,res)=>{
     }
 }
 
+export default refreshtToken;

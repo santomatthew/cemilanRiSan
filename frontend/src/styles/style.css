@@ -87,8 +87,8 @@
 
   .formpage{
       text-align: left;
-      margin-top: 15px;
-      margin-bottom: 20px
+      /* margin-top: ; */
+      position: relative;
   }
   
   .formsetting{
@@ -118,6 +118,8 @@
     transform: scale(1.1);
     background-color: #e9e7e7;
   }
+  
+
 
   .listresep{
 

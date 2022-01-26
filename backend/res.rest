@@ -1,16 +1,22 @@
 
-GET http://localhost:5000/get
+GET http://localhost:6999/get
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjUsInVzZXJuYW1lIjoib2h5ZWEiLCJlbWFpbCI6Im5pbmlAZ21haWwuY29tIiwiaWF0IjoxNjQzMTc3Nzc1LCJleHAiOjE2NDMxNzc4OTV9.b1cGwyBlSWaluzDvz85-V2dqgPJvOHizakruHsS9wyY
+
+
+
 
 ###
 POST http://localhost:6999/post
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjUsInVzZXJuYW1lIjoib2h5ZWEiLCJlbWFpbCI6Im5pbmlAZ21haWwuY29tIiwiaWF0IjoxNjQzMTc3NjQ0LCJleHAiOjE2NDMxNzc3NjR9.tu1zYqHkRdh8Xhu--nPs9OHZd7cbz96r37McrUoZGbk
+
 
 {
     "title" : "Bakso aci kuah",
     "bahan" : "bakso,garem,saos,sambel",
     "caption" : "masak,goreng,telen",
-    "img_url" : "https://akcdn.detik.net.id/api/wm/2020/03/20/48ffe775-d603-4b25-9440-270906e01b9e_169.jpeg"
+    "img_url" : "https://res.cloudinary.com/dxpjuvndd/image/upload/v1643117567/l2wqpob5zxhysstcyizv.jpg"
 }
 ###
 POST http://localhost:6999/api/signup
@@ -25,10 +31,25 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/api/login
+POST http://localhost:6999/api/login
 Content-Type: application/json
 
 {   
-    "password": "anjay",
-    "email": "nini@gmail.com"
+    "email": "nini@gmail.com",
+    "password": "anjay"
 }
+
+###
+
+GET http://localhost:6999/get/:id
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjUsInVzZXJuYW1lIjoib2h5ZWEiLCJlbWFpbCI6Im5pbmlAZ21haWwuY29tIiwiaWF0IjoxNjQzMTc3Nzc1LCJleHAiOjE2NDMxNzc4OTV9.b1cGwyBlSWaluzDvz85-V2dqgPJvOHizakruHsS9wyY
+
+{
+    "id": "5"
+}
+
+###
+GET http://localhost:6999/api/token
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyaWQiOjUsInVzZXJuYW1lIjoib2h5ZWEiLCJlbWFpbCI6Im5pbmlAZ21haWwuY29tIiwiaWF0IjoxNjQzMTc3Nzc1LCJleHAiOjE2NDMxNzc4OTV9.b1cGwyBlSWaluzDvz85-V2dqgPJvOHizakruHsS9wyY

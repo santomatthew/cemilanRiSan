@@ -10,30 +10,32 @@ const Login = () =>{
     const [Msg,setMsg] = useState('');
     const direct = useNavigate()
     const [validate,setValidate] = useState(false); 
+
     const LoginAccount = async(e)=>{
         const form = e.currentTarget;
         if(form.checkValidity()===false){
             e.preventDefault();
         }
         try {
+            e.preventDefault();
             setValidate(true)
             await axios.post('http://localhost:6999/api/login',{
                 email : email,
                 password : password
             });
-            alert('Wellcome')
-            setTimeout(()=>{direct('/')},500)
+            alert('Welcome to cemilanRisan')
+            direct('/dashboard')
         } catch (error) {
             if(error.response)
-            setMsg(error.response.data)
+            {setMsg(error.response.data)}
         }
     }
     return(
         <>
         <div className="d-flex justify-content-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="190" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="190" height="100" fill="currentColor" className="bi bi-person-circle" viewBox="0 0 16 16">
         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-        <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
         </div>
         <Form validated={validate} onSubmit={LoginAccount}>
@@ -51,7 +53,7 @@ const Login = () =>{
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control require
+                <Form.Control required
                 value={password}
                 onChange={(e)=>setPassword(e.target.value)}
                 type="password" 
@@ -59,6 +61,7 @@ const Login = () =>{
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
             </Form.Group>
+            <Form.Label value={Msg}></Form.Label><br/>
             <Button variant="primary" type="submit">
                 Login
             </Button>

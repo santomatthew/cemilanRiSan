@@ -3,25 +3,28 @@ import { Sequelize } from "sequelize";
 
 const { DataTypes } = Sequelize;
 
-const User = db.define("USERS",{
-    name : {
-        type : DataTypes.STRING
+const User = db.define(
+  "USERS",
+  {
+    name: {
+      type: DataTypes.STRING,
     },
-    username : {
-        type : DataTypes.STRING
+    username: {
+      type: DataTypes.STRING,
     },
-    email : {
-        type : DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
     },
-    password : {
-        type : DataTypes.TEXT
+    password: {
+      type: DataTypes.TEXT,
     },
-    refreshtoken : {
-        type : DataTypes.TEXT
-    }
-},{
-    freezeTableName : true
-})
-
+    refresh_token: {
+      type: DataTypes.TEXT,
+    },
+  },
+  {
+    freezeTableName: true,
+  }
+);
 
 export default User;

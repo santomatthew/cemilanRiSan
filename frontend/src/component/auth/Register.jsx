@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {Form, Button } from "react-bootstrap";
+import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
 
@@ -15,7 +15,7 @@ const Register = () =>{
     const [email,setEmail] = useState('');
     const [password,setPassword] = useState('')
 
-    const registerAccount =async(e)=>{
+    const registerAccount = async(e)=>{
 
         const form = e.currentTarget;
             if (form.checkValidity() === false) {
@@ -36,7 +36,6 @@ const Register = () =>{
 
     }
         
-
     return(
         <>
         <div className="d-flex justify-content-center">

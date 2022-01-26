@@ -1,6 +1,7 @@
 import posting from "../models/posting.js";
 import User from "../models/usermodel.js";
 import cloudinary from "../utils/cloudinary.js";
+// import cookieParser from "cookie-parser";
 
 export const getallPost = async (req, res) => {
   try {
@@ -12,14 +13,31 @@ export const getallPost = async (req, res) => {
   }
 };
 
-export const newPost = async (req, res) => {
-  const cookies = req.headers["cookie"];
-  const user = await User.findOne({
-    where: {
-      refresh_token: cookies,
-    },
+function parseCookies(request) {
+  const list = {};
+  const cookieHeader = request.headers?.cookie;
+  if (!cookieHeader) return list;
+
+  cookieHeader.split(`;`).forEach(function (cookie) {
+    let [name, ...rest] = cookie.split(`=`);
+    name = name?.trim();
+    if (!name) return;
+    const value = rest.join(`=`).trim();
+    if (!value) return;
+    list[name] = decodeURIComponent(value);
   });
 
+  return list;
+}
+
+export const newPost = async (req, res) => {
+  const cookies = parseCookies(req);
+
+  const user = await User.findOne({
+    where: {
+      refresh_token: cookies.refresh_token,
+    },
+  });
   const { title, bahan, caption } = req.body;
   try {
     const urlPhoto = await cloudinary.v2.uploader.upload(req.file.path);
@@ -55,10 +73,10 @@ export const deletePost = async (req, res) => {
 };
 
 export const getdetailPost = async (req, res) => {
-  const cookies = req.headers["cookie"];
+  const cookies = parseCookies(req);
   const user = await User.findOne({
     where: {
-      refresh_token: cookies,
+      refresh_token: cookies.refresh_token,
     },
   });
   if (user == null) {

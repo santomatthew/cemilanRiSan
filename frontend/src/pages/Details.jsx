@@ -60,7 +60,7 @@ const Details = () =>{
     });
 
         const ShowDetails = async ()=>{
-            const res = await axios.get(`http://localhost:6999/get/${id}`,{
+            const res = await axiosJWT.get(`http://localhost:6999/get/${id}`,{
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -69,8 +69,7 @@ const Details = () =>{
             setGambar(res.data.img_url);
             setBahan(res.data.bahan);
             setTutorial(res.data.caption);
-            refreshToken();
-            
+            refreshToken();            
         }
 
             useEffect(()=>{

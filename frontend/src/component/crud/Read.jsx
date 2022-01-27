@@ -4,7 +4,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Menu from "../navbarfooter/navbar"
 import Footer from "../navbarfooter/footer"
-import { Container,Row,Col } from "react-bootstrap";
+import { Container,Row,Col,Card,Button } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate,useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -22,6 +22,8 @@ const Read = () =>{
             const response = await axios.get('http://localhost:6999/api/token');
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
+            console.log(decoded);
+            setUser(decoded.username)
             setExpire(decoded.exp);
         } catch (error) {
             if (error.response) {
@@ -39,6 +41,7 @@ const Read = () =>{
             config.headers.Authorization = `Bearer ${response.data.accessToken}`;
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
+            // setId(decoded.userid);
             setExpire(decoded.exp);
         }
         return config;
@@ -46,33 +49,50 @@ const Read = () =>{
         return Promise.reject(error);
     });
 
-     const [user,setUser] = useState('')
-
+    const [user,setUser] = useState('')
+    
      const GetUser = async()=>{
          const response = await axiosJWT.get(`http://localhost:6999/get/profile/${id}`,{
             headers: {
                 Authorization: `Bearer ${token}`
             }
          })
-         setUser(response.data.name)
-         refreshToken();
-     }
+         console.log(response);
+        }
+    
+    const [recipeUser,setRecipeUser] = useState('')
+    const GetUserPost = async()=>{
+        const response = await axiosJWT.get(`http://localhost:6999/get/listpost/${id}`,{
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+         })
 
-     useEffect(()=>{
-         GetUser();
-     })
+        setRecipeUser(response.data)
+    }
+    useEffect(()=>{
+        GetUser();
+        GetUserPost();
+        refreshToken();
+     },[])
 
     return(
     <>
     <Menu/>
 
     <Container>
-        <div key={id}>
+        <div >
             <Row>
-            <Col lg="12">
-                <h1>{user}</h1>
-            </Col>
+                <Col lg="12">
+                    <h1> Halo {user}</h1>
+                </Col>
             </Row>
+            <Row>
+                <Col lg="12">
+                    <h1> List resep anda :</h1>
+                </Col>
+            </Row>
+            
         </div>
     </Container>
 

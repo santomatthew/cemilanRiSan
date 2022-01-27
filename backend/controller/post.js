@@ -13,6 +13,27 @@ export const getallPost = async (req, res) => {
   }
 };
 
+export const getUserPost = async (req, res) => {
+  try {
+    // const cookies = parseCookies(req);
+    // console.log("ini cookies ===", cookies);
+    // console.log(req);
+
+    // console.log(getbyId);
+    console.log(req.params.id);
+    const getall = await posting.findAll({
+      where: {
+        user_id: req.params.id,
+      },
+    });
+    console.log("ini getall ===", getall);
+    res.status(200).json(getall);
+  } catch (error) {
+    res.status(404).json({ msg: error });
+    console.log(error);
+  }
+};
+
 export const getNamePoster = async (req, res) => {
   try {
     const getbyId = await User.findAll({
@@ -95,12 +116,14 @@ export const getdetailPost = async (req, res) => {
   if (user == null) {
     res.status(404).json({ msg: "not allowed" });
   }
+  // console.log(req.params.id);
   try {
     const getbyId = await posting.findAll({
       where: {
         id: req.params.id,
       },
     });
+    console.log(getbyId[0]);
     res.status(200).json(getbyId[0]);
   } catch (error) {
     res.status(404).json({ msg: error });

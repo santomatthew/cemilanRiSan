@@ -4,13 +4,15 @@ import router from "./routers/router.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
+import User from "../backend/models/usermodel.js";
+import posting from "../backend/models/posting.js";
 
 dotenv.config();
 
 try {
   await db.authenticate();
-  // await User.sync();
-  // await posting.sync();
+  await User.sync();
+  await posting.sync();
   console.log("Database connected......");
 } catch (error) {
   console.log(error);

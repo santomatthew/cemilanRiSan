@@ -1,6 +1,7 @@
 import posting from "../models/posting.js";
 import User from "../models/usermodel.js";
 import cloudinary from "../utils/cloudinary.js";
+import Relation from "../models/index.js";
 // import cookieParser from "cookie-parser";
 
 export const getallPost = async (req, res) => {
@@ -14,36 +15,58 @@ export const getallPost = async (req, res) => {
 };
 
 export const getUserPost = async (req, res) => {
+  const user = await User.findAll({
+    attributes: ["id", "username"],
+  });
   try {
-    // const cookies = parseCookies(req);
-    // console.log("ini cookies ===", cookies);
-    // console.log(req);
-
-    // console.log(getbyId);
-    console.log(req.params.id);
-    const getall = await posting.findAll({
-      where: {
-        user_id: req.params.id,
-      },
+    Relation;
+    const post = await posting.findAll({
+      include: [user],
     });
-    console.log("ini getall ===", getall);
-    res.status(200).json(getall);
+    console.log(json);
+    res.json(post);
   } catch (error) {
-    res.status(404).json({ msg: error });
     console.log(error);
   }
 };
 
-export const getNamePoster = async (req, res) => {
+export const GetProductById = async (req, res) => {
   try {
-    const getbyId = await User.findAll({
+    const post = await posting.findAll({
       where: {
         id: req.params.id,
       },
     });
-    res.status(200).json(getbyId[0]);
+    res.json(post[0]);
   } catch (error) {
-    res.status(404).json({ msg: error });
+    res.json({ msg: error });
+  }
+};
+
+export const EditPost = async (req, res) => {
+  const { title, bahan, caption } = req.body;
+  // console.log("ini adalah req.body ====", req.body);
+  try {
+    const urlPhoto = await cloudinary.v2.uploader.upload(req.file.path);
+    console.log("ini adalah urlphoto ====", urlPhoto);
+    await posting.update(
+      {
+        title: title,
+        bahan: bahan,
+        caption: caption,
+        img_url: urlPhoto.secure_url,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.json({
+      msg: "DATA TERUPDATE",
+    });
+  } catch (error) {
+    res.json({ msg: "DATA GAGAL DIUDATE" });
   }
 };
 
@@ -116,7 +139,6 @@ export const getdetailPost = async (req, res) => {
   if (user == null) {
     res.status(404).json({ msg: "not allowed" });
   }
-  // console.log(req.params.id);
   try {
     const getbyId = await posting.findAll({
       where: {

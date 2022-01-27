@@ -79,6 +79,7 @@ const Create = () =>{
                     Authorization: `Bearer ${token}`
                 }
             });
+            alert("Resep berhasil di post")
              setTimeout(()=>{direct('/dashboard')},200)
     }
 

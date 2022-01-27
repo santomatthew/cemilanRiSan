@@ -5,6 +5,7 @@ import {
   newPost,
   deletePost,
   getdetailPost,
+  getNamePoster,
 } from "../controller/post.js";
 import { Login, Register, GetProfile, Logout } from "../controller/user.js";
 import verifytoken from "../middleware/verifytoken.js";

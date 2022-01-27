@@ -7,6 +7,7 @@ import Login from "./component/auth/FormPage";
 import CreateRecipe from "./component/crud/Create";
 import UpdateRecipe from "./component/crud/Update";
 import Details from "./pages/Details";
+import Profile from "./component/crud/Read";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/addrecipe" element={<CreateRecipe />} />
           <Route path="/editrecipe/:id" element={<UpdateRecipe />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </div>

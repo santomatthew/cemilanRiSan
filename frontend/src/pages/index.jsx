@@ -15,6 +15,7 @@ const Index = () =>{
 
 
     const [name, setName] = useState('');
+    const [poster,setPoster] = useState('')
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
 
@@ -66,6 +67,7 @@ const Index = () =>{
             }
         })
         setRecipe(response.data);
+        setPoster(response.data.name)
     }
 
 
@@ -148,6 +150,7 @@ useEffect(()=>{
                         recipe.map((row,idx)=>(
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card className="card" style={{ width: '18rem' }}>
+                            <Card.Header style={{textAlign:'right'}} ></Card.Header>
                             <Card.Img src={row.img_url}  height={"175px"}  cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
                               <Card.Title>Resep {row.title}</Card.Title>

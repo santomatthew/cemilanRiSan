@@ -24,7 +24,7 @@ export const Register = async (req, res) => {
       email: email,
       password: hashPassword,
     });
-    res.json({ msg: "register berhasil" });
+    res.json({ msg: "Register Berhasil" });
   } catch (error) {
     res.json({ error });
     console.log(error);
@@ -96,13 +96,30 @@ export const Logout = async (req, res) => {
   return res.sendStatus(200);
 };
 
+function parseCookies(request) {
+  const list = {};
+  const cookieHeader = request.headers?.cookie;
+  if (!cookieHeader) return list;
+
+  cookieHeader.split(`;`).forEach(function (cookie) {
+    let [name, ...rest] = cookie.split(`=`);
+    name = name?.trim();
+    if (!name) return;
+    const value = rest.join(`=`).trim();
+    if (!value) return;
+    list[name] = decodeURIComponent(value);
+  });
+
+  return list;
+}
+
 export const GetProfile = async (req, res) => {
   try {
-    const cookie = req.headers["cookie"];
-    console.log(cookie);
+    const cookie = parseCookies(req);
+    // console.log(cookie);
     const user = await User.findOne({
       where: {
-        refresh_token: cookie,
+        refresh_token: cookie.refresh_token,
       },
       attributes: ["id", "username"],
       include: posting,

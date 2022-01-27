@@ -13,6 +13,19 @@ export const getallPost = async (req, res) => {
   }
 };
 
+export const getNamePoster = async (req, res) => {
+  try {
+    const getbyId = await User.findAll({
+      where: {
+        id: req.params.id,
+      },
+    });
+    res.status(200).json(getbyId[0]);
+  } catch (error) {
+    res.status(404).json({ msg: error });
+  }
+};
+
 function parseCookies(request) {
   const list = {};
   const cookieHeader = request.headers?.cookie;

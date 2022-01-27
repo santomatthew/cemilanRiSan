@@ -33,6 +33,7 @@ const Menu = ()=>{
                             <Nav style={{marginRight:'10px'}}>
                                 <Nav.Link className="navbarfont hover-underline-animation" href="/dashboard" >Home</Nav.Link>
                                 <Nav.Link className="navbarfont hover-underline-animation" href="/aboutus" >About Us</Nav.Link>
+                                {/* <Nav.Link className="navbarfont hover-underline-animation" href={`profile/${id}`} >My Account</Nav.Link> */}
                                 <Nav.Link className="navbarfont hover-underline-animation" onClick={Logout} >Logout</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

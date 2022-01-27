@@ -4,6 +4,7 @@ import {
   getallPost,
   newPost,
   deletePost,
+  getUserPost,
   getdetailPost,
   getNamePoster,
 } from "../controller/post.js";
@@ -13,7 +14,9 @@ import refreshToken from "../controller/refreshtoken.js";
 
 const router = express.Router();
 
+//router for Post
 router.get("/get", verifytoken, getallPost);
+router.get("/get/listpost/:id", verifytoken, getUserPost);
 router.get("/get/:id", verifytoken, getdetailPost);
 router.post("/post", verifytoken, upload.single("img_url"), newPost);
 router.delete("/delete/:id", deletePost);
@@ -22,6 +25,7 @@ router.delete("/delete/:id", deletePost);
 router.post("/api/signup", Register);
 router.post("/api/login", Login);
 router.delete("/logout", Logout);
+
 //routers for Token
 router.get("/api/token", refreshToken);
 router.get("/get/profile/:id", verifytoken, GetProfile);

@@ -68,6 +68,7 @@ const Index = () =>{
         })
         setRecipe(response.data);
         setPoster(response.data.name)
+        refreshToken();
     }
 
 
@@ -79,7 +80,6 @@ const Index = () =>{
 
 useEffect(()=>{
     GetAllRecipe();
-    refreshToken();
 },[])
 
 

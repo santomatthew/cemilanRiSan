@@ -20,6 +20,7 @@ function App() {
           <Route path="/addrecipe" element={<CreateRecipe />} />
           <Route path="/profile/edit/:id" element={<UpdateRecipe />} />
           <Route path="/details/:id" element={<Details />} />
+          <Route path="/profile/details/:id" element={<Details />} />
           <Route path="/profile/:id" element={<Profile />} />
         </Routes>
       </BrowserRouter>

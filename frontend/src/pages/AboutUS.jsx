@@ -14,9 +14,9 @@ const AboutUs=()=>{
             <Navigasi/>
                     <Container>
                 <div>
-                    <h1>Welcome To cemilanRiSan</h1>
+                    <h1 className='navbarfont'>Welcome To cemilanRiSan</h1>
                 </div>
-                        <Row>
+                        <Row className='navbarfont'> 
                             {/* Card 1 */}
                             <Col lg='12' className='d-flex justify-content-center'> 
                                 <Card style={{width:'23rem',color:'black',marginRight:'20px'}}>                                      

@@ -4,7 +4,6 @@ import { Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
 
-
 const Register = () =>{
 
     // Form Validasi untuk tiap field yang kosong
@@ -25,6 +24,7 @@ const Register = () =>{
 
             e.preventDefault();
             setValidated(true)
+
             await axios.post(`http://localhost:6999/api/signup`,{
                 name: name,
                 username : username,

@@ -24,7 +24,6 @@ const Create = () =>{
     const [bahan,setBahan] = useState('');
     const [tutorial,setTutorial] = useState('');
     const [token, setToken] = useState('');
-    // const [user_id,setUserid]= useState('');
     const [expire, setExpire] = useState('');
     const direct = useNavigate()
 
@@ -134,8 +133,6 @@ const Create = () =>{
                             Masukkan tutorial
                             </Form.Control.Feedback>
                         </Form.Group>
-
-                        {/* <Form.Control type="text" value={user_id} placeholder={user_id} readOnly /> */}
                         
                         <Button variant="primary" type="submit">
                             Submit

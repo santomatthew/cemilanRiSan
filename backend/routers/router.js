@@ -6,7 +6,8 @@ import {
   deletePost,
   getUserPost,
   getdetailPost,
-  getNamePoster,
+  EditPost,
+  GetProductById,
 } from "../controller/post.js";
 import { Login, Register, GetProfile, Logout } from "../controller/user.js";
 import verifytoken from "../middleware/verifytoken.js";
@@ -18,8 +19,15 @@ const router = express.Router();
 router.get("/get", verifytoken, getallPost);
 router.get("/get/listpost/:id", verifytoken, getUserPost);
 router.get("/get/:id", verifytoken, getdetailPost);
+router.get("/get/recipe/:id", verifytoken, GetProductById);
 router.post("/post", verifytoken, upload.single("img_url"), newPost);
 router.delete("/delete/:id", deletePost);
+router.patch(
+  "/profile/edit/:id",
+  verifytoken,
+  upload.single("img_url"),
+  EditPost
+);
 
 // routers For Users;
 router.post("/api/signup", Register);

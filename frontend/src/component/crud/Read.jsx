@@ -4,7 +4,7 @@ import axios from "axios";
 import jwt_decode from "jwt-decode";
 import Menu from "../navbarfooter/navbar"
 import Footer from "../navbarfooter/footer"
-import { Container,Row,Col,Card,Button } from "react-bootstrap";
+import { Container,Row,Col,Card,Button, CardGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useNavigate,useParams } from "react-router-dom";
 import { useEffect } from "react";
@@ -23,7 +23,7 @@ const Read = () =>{
             setToken(response.data.accessToken);
             const decoded = jwt_decode(response.data.accessToken);
             console.log(decoded);
-            setUser(decoded.username)
+            setUser(decoded.name)
             setExpire(decoded.exp);
         } catch (error) {
             if (error.response) {
@@ -49,31 +49,28 @@ const Read = () =>{
         return Promise.reject(error);
     });
 
+    const deletePost = async (id)=>{
+        await axios.delete(`http://localhost:6999/delete/${id}`);
+        GetUser();
+    }
+
     const [user,setUser] = useState('')
-    
+   
+    const [recipeUser,setRecipeUser] = useState([])
      const GetUser = async()=>{
          const response = await axiosJWT.get(`http://localhost:6999/get/profile/${id}`,{
             headers: {
                 Authorization: `Bearer ${token}`
             }
          })
-         console.log(response);
+         setRecipeUser(response.data.captions)
+        //  console.log(response);
         }
     
-    const [recipeUser,setRecipeUser] = useState('')
-    const GetUserPost = async()=>{
-        const response = await axiosJWT.get(`http://localhost:6999/get/listpost/${id}`,{
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-         })
-
-        setRecipeUser(response.data)
-    }
+   
     useEffect(()=>{
         GetUser();
-        GetUserPost();
-        refreshToken();
+       refreshToken();
      },[])
 
     return(
@@ -92,7 +89,26 @@ const Read = () =>{
                     <h1> List resep anda :</h1>
                 </Col>
             </Row>
-            
+                    
+            <Row>
+                {
+                    recipeUser.map((row)=>(
+                        <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
+                            <Card className="card" style={{ width: '18rem' }}>
+                            <Card.Header style={{textAlign:'right'}} > by {user}</Card.Header>
+                            <Card.Img src={row.img_url}  height={"175px"}  cross-origin="anonymous" alt={row.title}/>
+                            <Card.Body>
+                              <Card.Title>Resep {row.title}</Card.Title>
+                                <Button variant="primary" href={`details/${row.id}`}>Details</Button>
+                                |||
+                                <Button variant="primary" href={`edit/${row.id}`}>Update</Button>
+                            </Card.Body>
+                            <Card.Footer><Button onClick={()=>deletePost(row.id)}> Delete</Button></Card.Footer>
+                          </Card>
+                        </Col>
+                    ))
+                }
+            </Row>
         </div>
     </Container>
 

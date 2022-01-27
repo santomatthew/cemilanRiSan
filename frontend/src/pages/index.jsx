@@ -72,12 +72,6 @@ const Index = () =>{
     }
 
 
-//    const deletePost = async (id)=>{
-//     await axios.delete(`http://localhost:6999/delete/${id}`);
-//     GetAllRecipe();
-//     }
-
-
 useEffect(()=>{
     GetAllRecipe();
 },[])
@@ -147,15 +141,14 @@ useEffect(()=>{
 
                 <Row style={{marginTop:'10px'}}>
                     {
-                        recipe.map((row,idx)=>(
+                        recipe.map((row)=>(
                             <Col key={row.id} lg="3" className="d-flex justify-content-center listresep" >
                             <Card className="card" style={{ width: '18rem' }}>
-                            <Card.Header style={{textAlign:'right'}} ></Card.Header>
+                            <Card.Header style={{textAlign:'right'}} > by {row.user_id}</Card.Header>
                             <Card.Img src={row.img_url}  height={"175px"}  cross-origin="anonymous" alt={row.title}/>
                             <Card.Body>
                               <Card.Title>Resep {row.title}</Card.Title>
                               <Button variant="primary" href={`details/${row.id}`}>Details</Button>
-                                {/* <Button onClick={()=>deletePost(row.id)}> Delete</Button> */}
                             </Card.Body>
                           </Card>
                         </Col>

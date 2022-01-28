@@ -21,7 +21,7 @@ const refreshToken = async (req, res) => {
         { userid, name, username, email },
         "RAHASIA",
         {
-          expiresIn: "30s",
+          expiresIn: "1d",
         }
       );
       res.json({ accessToken });

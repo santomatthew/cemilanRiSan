@@ -167,6 +167,26 @@
     font-size: 20px
   }
 
+  .aboutus{
+    border-bottom: 4px solid black;
+    font-size: 50px
+  }
+  
+  .aboutuslogo{
+    margin-top: 20px
+  }
+
+  .aboutusstyle{
+    border-radius: 20px;
+    border: 2px solid black
+  }
+
+  .aboutusspecial{
+  background-image: url("../component/img/bgaboutus.jpg") ;
+  border: 1px solid black;
+  border-radius: 150px ;
+  }
+
 /* font cemilanrisan */
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 /* navbar font */

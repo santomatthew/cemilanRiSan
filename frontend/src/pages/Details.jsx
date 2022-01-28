@@ -97,13 +97,21 @@ const Details = () =>{
                     <Row>
                         <Col lg="12">
                         <h3>Bahan-bahan :</h3>
-                            {bahan}                
+                        <Row className="d-flex justify-content-center">
+                            <Col lg="8">
+                            <p style={{textAlign:"justify"}}>{bahan}</p>       
+                            </Col>
+                        </Row>        
                         </Col>
                     </Row>
                     <Row>
                         <Col lg="12">
                         <h3>Tutorial :</h3>
-                            {tutorial}                
+                        <Row className="d-flex justify-content-center" >
+                            <Col lg="8" >
+                            <p style={{textAlign:"justify"}} >{tutorial}</p>       
+                            </Col>
+                        </Row>               
                         </Col>
                     </Row>
 

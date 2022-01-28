@@ -49,10 +49,10 @@ export const Login = async (req, res) => {
     const username = users[0].name;
     const email = users[0].email;
     const accessToken = jwt.sign({ userid, username, email }, "RAHASIA", {
-      expiresIn: "120s",
+      expiresIn: "1d",
     });
     const refreshToken = jwt.sign({ userid, username, email }, "RAHASIA", {
-      expiresIn: "1d",
+      expiresIn: "7d",
     });
     await User.update(
       { refresh_token: refreshToken },

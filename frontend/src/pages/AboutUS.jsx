@@ -1,85 +1,66 @@
 import React from 'react'
 import Navigasi from '../component/navbarfooter/navbar'
 import Footer from '../component/navbarfooter/footer'
-import { Card, Col, Container, Row } from 'react-bootstrap'
-import Iconfb from '../component/img/Icon_fb.png'
-import IconLk from '../component/img/Icon_lk.svg'
-import Iconig from '../component/img/Icon_ig.svg'
+import { Accordion, Col, Container, Row } from 'react-bootstrap'
 import '../styles/Aboutus.css'
+
+
+
+
 
 
 const AboutUs=()=>{
     return(
         <>
             <Navigasi/>
-                    <Container>
-                <div>
-                    <h1 className='navbarfont'>Welcome To cemilanRiSan</h1>
-                </div>
-                        <Row className='navbarfont'> 
-                            {/* Card 1 */}
-                            <Col lg='12' className='d-flex justify-content-center'> 
-                                <Card style={{width:'23rem',color:'black',marginRight:'20px'}}>                                      
-                                <div className='footer_Card'>
-                                <Card.Header>
-                                    <h3>SANTO</h3>
-                                </Card.Header>
-                                </div>
-                                    <Card.Body >
-                                        <Card.Text>
-                                            <div className='textCard'>
-                                            Halo nama saya Santo, <br/>
-                                            Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian front-end yang dimana dibagian untuk mendevelop tiap tampilan yang akan diterima oleh setiap user dan juga mendesign tiap tampilannya.
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='footer_Card'>
-                                        <Card.Footer >
-                                            <Card.Link href="#fb">
-                                                <img src={Iconfb} alt='icon_facebook' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                            <Card.Link href="#lk">
-                                                <img src={IconLk} alt='icon_Linkedin' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                            <Card.Link >
-                                                <img src={Iconig} alt='icon_ig' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                        </Card.Footer>
-                                    </div>
-                                </Card>
-                            {/* Card 2 */}
-                                <Card style={{width:'23rem',color:'black',marginLeft:'20px'}}>                                        
-                                <div className='footer_Card'>
-                                <Card.Header>
-                                    <h3>RIDHO</h3>
-                                </Card.Header>
-                                </div>
-                                    <Card.Body >
-                                        <Card.Text>
-                                            <div className='textCard'>
-                                            Hello nama saya Ridho<br/>
-                                            Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian back-end yang dimana database dan API adalah menjadi teman saya untuk bekerja dan menyiapkan berbagai service yang akan di kirim ke front-end
-                                            </div>
-                                        </Card.Text>
-                                    </Card.Body>
-                                    <div className='footer_Card'>
-                                        <Card.Footer >
-                                            <Card.Link href="#fb">
-                                                <img src={Iconfb} alt='icon_facebook' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                            <Card.Link href="#lk">
-                                                <img src={IconLk} alt='icon_Linkedin' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                            <Card.Link >
-                                                <img src={Iconig} alt='icon_ig' style={{width:'32px',height:'32px'}}/>
-                                            </Card.Link>
-                                        </Card.Footer>
-                                    </div>
-                                </Card>
-                            </Col>  
+                    <Container className='navbarfont aboutusspecial'>
+                <Row className="d-flex justify-content-center">
+                    <Col lg="3">
+                        <h1 className='navbarfont aboutus'>About Us</h1>
+                    </Col>
+                </Row>    
+                
 
+                <Row className="d-flex justify-content-center" style={{marginBottom:'20px'}}>
+                    <Col lg="12">
+                    <p style={{fontSize:'20px',fontStyle:"italic"}}>“People want honest, flavourful food, not some show-off meal that takes days to prepare.” — Ted Allen</p>
+                    </Col> 
+                </Row>
 
-                        </Row>
+                <Row className="d-flex justify-content-center">
+                    <Col lg="6">
+                    <p style={{textAlign:'justify'}}>Terima kasih telah menjadikan <span className="cemilanrisan" style={{fontSize:'25px'}}>'cemilanRiSan'</span> sebagai platform anda dalam membuat resep cemilan dan berbagi dengan user lainnya. Kami hadir untuk membantu anda dalam membagikan resep, terkhususnya untuk anda yang memiliki kreatifitas dalam mengolah suatu cemilan menjadi cemilan yang unik, sehat, dan enak.</p>
+                    </Col>
+                </Row>
+
+                <Row className="d-flex justify-content-center" style={{marginBottom:'20px'}}>
+                    <Col lg="5" >
+                    <Accordion defaultActiveKey={['0']}>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header><b>Front-End</b></Accordion.Header>
+                        <Accordion.Body style={{textAlign:"justify"}}>
+                        Halo nama saya <b>Santo</b>,
+                        <br />
+                    Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian front-end yang dimana dibagian untuk mendevelop tiap tampilan yang akan diterima oleh setiap user dan juga mendevelop tiap API yang akan di hit oleh user.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    </Accordion>
+                    </Col>
+                    <Col lg="5" >
+                    <Accordion defaultActiveKey={['0']}>
+                    <Accordion.Item eventKey="0">
+                        <Accordion.Header><b>Back-End</b></Accordion.Header>
+                        <Accordion.Body style={{textAlign:"justify"}}>
+                        Halo nama saya <b>Ridho</b>.
+                        <br/>
+                    Saya adalah seorang Fullstack Web Developer Student di dibimbing. Saya menyukai di bagian back-end yang dimana database dan API adalah menjadi teman saya untuk bekerja dan menyiapkan berbagai service yang akan di kirim ke front-end.
+                        </Accordion.Body>
+                    </Accordion.Item>
+                    </Accordion>
+                    </Col>
+                </Row>
+
+                <Row></Row>
                     </Container>
                 <Footer/>
         </>

@@ -127,7 +127,7 @@ const Create = () =>{
                         </Form.Group>
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Tutorial</Form.Label>
-                            <Form.Control required value={tutorial}
+                            <Form.Control required as="textarea" value={tutorial}
                             onChange={(e)=>setTutorial(e.target.value)}type="text" placeholder="Langkah-langkah" />
                             <Form.Control.Feedback type="invalid">
                             Masukkan tutorial

@@ -8,6 +8,7 @@ import {
   getdetailPost,
   EditPost,
   GetProductById,
+  getNamePoster,
 } from "../controller/post.js";
 import { Login, Register, GetProfile, Logout } from "../controller/user.js";
 import verifytoken from "../middleware/verifytoken.js";
@@ -16,7 +17,7 @@ import refreshToken from "../controller/refreshtoken.js";
 const router = express.Router();
 
 //router for Post
-router.get("/get", verifytoken, getallPost);
+router.get("/get", verifytoken, getallPost, getNamePoster);
 router.get("/get/listpost/:id", verifytoken, getUserPost);
 router.get("/get/:id", verifytoken, getdetailPost);
 router.get("/get/recipe/:id", verifytoken, GetProductById);

@@ -30,6 +30,16 @@ export const getUserPost = async (req, res) => {
   }
 };
 
+export const getNamePoster = async (req, res) => {
+  try {
+    Relation;
+    const user = await posting.findAll({
+      include: [{ model: User, as: "USERS", attributes: ["name"] }],
+    });
+    res.status(200).json(user);
+  } catch (error) {}
+};
+
 export const GetProductById = async (req, res) => {
   try {
     const post = await posting.findAll({

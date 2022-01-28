@@ -83,10 +83,10 @@ const Details = () =>{
 
         <div style={{backgroundColor:""}}>
             <Container>
-                <div key={id} style={{backgroundColor:'#FFF8F3'}}>
+                <div key={id} className="backgrounddetail">
                     <Row>
                         <Col lg="12">
-                        <h1>{title}</h1>
+                        <p style={{fontSize:'50px'}}>Resep {title}</p>
                         </Col>
                     </Row>
                     <Row>

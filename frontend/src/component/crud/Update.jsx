@@ -92,9 +92,7 @@ const Update = () =>{
         setGambar(res.data.img_url);
         setBahan(res.data.bahan);
         setTutorial(res.data.caption)
-        
     }
-
 
     useEffect(()=>{
         refreshToken();
@@ -138,7 +136,7 @@ const Update = () =>{
                         </Form.Group>
                         <Form.Group className="mb-3" hasvalidation="true">
                             <Form.Label>Tutorial</Form.Label>
-                            <Form.Control required value={tutorial}
+                            <Form.Control required as="textarea" value={tutorial}
                             onChange={(e)=>setTutorial(e.target.value)}type="text" placeholder="Update Tutorial" />
                             
                         </Form.Group>
